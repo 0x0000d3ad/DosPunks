@@ -16,7 +16,6 @@ import datetime
 import json
 import logging
 import os
-import pandas
 import sys
 
 from eth_utils import keccak, to_checksum_address
