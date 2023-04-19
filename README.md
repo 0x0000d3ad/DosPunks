@@ -1,8 +1,8 @@
 # Introduction 
- This repo contains the DOS punks migration smart contract and supporting Python Web3 implementation to test the migration code.
+ This repo contains the DOS punks migration smart contract, test 1155 source contract, and supporting Python Web3 implementation to test the migration code.
 
 # Core Contents
- The main functionality of this repo is the following
+ The main functionality of this repo is the following:
  - `DosPunks0721` - ERC 721 contract *to* which we will migrate.
  - `DosPunks1155` - ERC 1155 contract *from* which we will migrate.  This is a *test contract only*.  On the main net, this will be replaced by the Open Sea contract.
  - `dos_punks_migration_test.py` - Contains python code to demonstrate migration functionality.
@@ -13,12 +13,15 @@
  1. `.devsecret` - Deployer mnemonic
  2. `.secret` - NFT recipient mnemonic
 
- Note that it is *possible* to use the same wallet, but the deployer wallet does have some priviledges (see the [Solidity modifier](https://www.freecodecamp.org/news/what-are-solidity-modifiers/) `onlyOwner`).  Thus it is better to test any public-facing functionality on a *separate* wallet.
+ Note that it is *possible* to use the same wallet, but the deployer wallet does have some privileges (see the [Solidity modifier](https://www.freecodecamp.org/news/what-are-solidity-modifiers/) `onlyOwner`).  Thus it is better to test any public-facing functionality on a *separate* wallet.
 
  It is *highly* recommended that you do not use an existing wallet for dev purposes.  In other words, your dev wallets should be used for dev purposes *only* and do not contain any real assets other than perhaps test net Ethereum.
 
 # Installation
- Dependencies include:
+ To run all functionality, you will need to install the Python 3, Truffle and Ganache.  There are some additional dependencies.
+
+## Python Dependencies
+ Python dependencies include:
 
  1. eth_utils - for creating checksummed wallet addresses
  2. web3 - for contract interaction 
@@ -26,6 +29,9 @@
  These can be installed as follows:
 
  `pip -r requirements.txt`
+
+## Smart Contract Dependencies
+ Detailed documentation can be found in the respective README's for [DosPunks1155](./DosPunks1155/README.md) and [DosPunks0721](./DosPunks0721/README.md).
 
 # Running Test Migration
  There are three primary steps required to run the migration example:
