@@ -38,9 +38,9 @@
 
  `ganache-cli`
 
- NOTE: ganache-cli will use a randomly generated private key every time it is started.  It is highly recommended that you use a consistent private key for dev operations, as this will minimize updating [.devsecret](https://www.oreilly.com/library/view/mastering-blockchain-programming/9781839218262/fd4b11b7-274c-4cd7-b15e-a18c1d17da3b.xhtml) later.  To use a dev mnemonic, put the space-delimited mnemonic phrase into a file, for example `dev_mnemonic.txt` and run:
+ NOTE: ganache-cli will use a randomly generated private key every time it is started.  It is highly recommended that you use a consistent private key for dev operations, as this will minimize updating [.devsecret](https://www.oreilly.com/library/view/mastering-blockchain-programming/9781839218262/fd4b11b7-274c-4cd7-b15e-a18c1d17da3b.xhtml) later.  To use the dev mnemonic specified in `.devsecret`:
 
-`ganache-cli -m dev_mnemonic.txt`
+`ganache-cli -m path/to/.devsecret`
 
 ## Deploy DosPunks1155
  We will need to deploy the ERC 1155 contract.  This mimics the OpenSea contract, but is *not* the real thing.  It is simply a 'dummy' contract to test operations.
