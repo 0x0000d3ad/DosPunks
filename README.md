@@ -13,7 +13,7 @@
  1. `.devsecret` - Deployer mnemonic
  2. `.secret` - NFT recipient mnemonic
 
- Note that it is *possible* to use the same wallet address, but the deployer address does have some priviledges (see the [Solidity modifier](https://www.freecodecamp.org/news/what-are-solidity-modifiers/) `onlyOwner`).  Thus it is better to test any public-facing functionality on a *separate* wallet.
+ Note that it is *possible* to use the same wallet, but the deployer wallet does have some priviledges (see the [Solidity modifier](https://www.freecodecamp.org/news/what-are-solidity-modifiers/) `onlyOwner`).  Thus it is better to test any public-facing functionality on a *separate* wallet.
 
  It is *highly* recommended that you do not use an existing wallet for dev purposes.  In other words, your dev wallets should be used for dev purposes *only* and do not contain any real assets other than perhaps test net Ethereum.
 
