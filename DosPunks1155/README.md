@@ -21,7 +21,7 @@ This will create a directory with a file structure containing (among other thing
 Replace the default "DosPunks1155.sol" in the "contracts" folder with the one in this repository.
 
 ## Change Mint Address
-Change the `mint_to_address` at line 1085 to an address you control.
+Change the `mint_to_address` at line [1085](https://github.com/0x0000d3ad/DosPunks/blob/ef5defc3c6555250e2963cec251120a8907aac01/DosPunks1155/contracts/DosPunks1155.sol#L1085) to an address you control.
 
  `address public mint_to_address = <your address>;`
 

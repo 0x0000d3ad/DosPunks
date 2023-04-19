@@ -49,7 +49,7 @@
 
  `truffle deploy --network development`
 
- Observe that deploying this contract will mint tokens to the specified wallet address when the constructor is called.  Change this wallet address to a wallet for which you have the private key.  Put the mnemonic to this private key in a space-delimited file called `.secret`.  Change the `mint_to_address` wallet address at line 1085:
+ Observe that deploying this contract will mint tokens to the specified wallet address when the constructor is called.  Change this wallet address to a wallet for which you have the private key.  Put the mnemonic to this private key in a space-delimited file called `.secret`.  Change the `mint_to_address` wallet address at line [1085](https://github.com/0x0000d3ad/DosPunks/blob/ef5defc3c6555250e2963cec251120a8907aac01/DosPunks1155/contracts/DosPunks1155.sol#L1085):
 
  `address public mint_to_address = <your address>;`
 
