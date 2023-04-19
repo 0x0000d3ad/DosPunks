@@ -21,7 +21,7 @@ This will create a directory with a file structure containing (among other thing
 Replace the default "DosPunks0721.sol" in the "contracts" folder with the one in this repository.
 
 ## Token ID's
-Note that the `getTokenId` function is crucial to the correct mapping between the Open Sea contract and the ERC 721 contract.  If there is an error, the NFT's will not align.  There were certain aspects to the DOS Punks Open Sea contract which required some bespoke implementation.  Therefore, if you try to recycle this code for an arbitrary contract, it will not work.  For more information on the mapping between the Open Sea ID and the token ID, read [this article](https://medium.com/coinmonks/opensea-tokenid-explained-f420401f5109) about the token ID and [this article](https://cyberdoggos.medium.com/migrating-from-opensea-cfe9aab47d3) about migrating from Open Sea.
+Note that the `getTokenId` function is crucial to the correct mapping between the Open Sea contract and the ERC 721 contract.  If there is an error in this mapping, the NFT's will not align.  There were certain aspects to the DOS Punks Open Sea contract which required some bespoke implementation.  Therefore, if you try to recycle this code for an arbitrary contract, it will not work.  For more information on the mapping between the Open Sea ID and the token ID, read [this article](https://medium.com/coinmonks/opensea-tokenid-explained-f420401f5109) about the token ID and [this article](https://cyberdoggos.medium.com/migrating-from-opensea-cfe9aab47d3) about migrating from Open Sea.
 
 ## Edit Config
 The truffle-config.js must be edit with the following:

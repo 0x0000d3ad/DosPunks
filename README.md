@@ -7,6 +7,14 @@
  - `DosPunks1155` - ERC 1155 contract *from* which we will migrate.  This is a *test contract only*.  On the main net, this will be replaced by the Open Sea contract.
  - `dos_punks_migration_test.py` - Contains python code to demonstrate migration functionality.
 
+# Private Key Disclaimer
+ No mention of private keys would be complete without an obligatory disclaimer on the safety of your [mnemonic phrase](https://docs.safepal.io/safepal-hardware-wallet/security-features/software-security/mnemonic-phrase).  For this project, you will need *two* addresses, one for the deployer, one for the NFT owner.  They will be stored in the following files:
+
+ 1. `.devsecret` - Deployer mnemonic
+ 2. `.secret` - NFT recipient mnemonic
+
+ It is *highly* recommended that you do not use existing mnemonics, i.e. that these dev wallets are used for dev purposes *only* and do not contain any real assets other than perhaps test net Ethereum.
+
 # Installation
  Dependencies include:
 
@@ -18,7 +26,6 @@
  `pip -r requirements.txt`
 
 # Running Test Migration
-
  There are three primary steps required to run the migration example:
 
  1. Start Ganache 
@@ -31,7 +38,7 @@
 
  `ganache-cli`
 
- NOTE: ganache-cli will use a randomly generated private key every time it is started.  It is highly recommended that you use a consistent private key for dev operations, as this will minimize updating [.devsecret]() later.  To use a dev mnemonic, put the space-delimited mnemonic phrase into a file, for example `dev_mnemonic.txt` and run:
+ NOTE: ganache-cli will use a randomly generated private key every time it is started.  It is highly recommended that you use a consistent private key for dev operations, as this will minimize updating [.devsecret](https://www.oreilly.com/library/view/mastering-blockchain-programming/9781839218262/fd4b11b7-274c-4cd7-b15e-a18c1d17da3b.xhtml) later.  To use a dev mnemonic, put the space-delimited mnemonic phrase into a file, for example `dev_mnemonic.txt` and run:
 
 `ganache-cli -m dev_mnemonic.txt`
 
@@ -46,7 +53,7 @@
 
  `address public mint_to_address = <your address>;`
 
- NOTE: Preconditions exist and are necessary for deployment, including creating a `truffle-config.js` file.  Read more in the [DosPunks1155 README]().
+ NOTE: Preconditions exist and are necessary for deployment, including creating a `truffle-config.js` file.  Read more in the [DosPunks1155 README](./DosPunks1155/README.md).
 
 ## Deploy DosPunks0721
  Next, we must deploy the ERC 721 contract.  This is the contract *to which* we are migrating.
@@ -55,7 +62,7 @@
 
  `truffle deploy --network development`
 
- NOTE: As before, preconditions exist and are necessary for deployment, including creating a `truffle-config.js` file.  Read more in the [DosPunks0721 README]().
+ NOTE: As before, preconditions exist and are necessary for deployment, including creating a `truffle-config.js` file.  Read more in the [DosPunks0721 README](./DosPunks0721/README.md).
 
 ## Run the Python Code
  The migration functionality is facilitated by the Python script: `dos_punks_migration_test.py`.  This will set up accounts, read balances, set and check approvals, and will perform the actual migration.  This is just a demonstration of functionality for demo and testing purposes.
@@ -89,3 +96,6 @@
  NOTE: the balance of both the ERC 1155 and ERC 721 tokens will be displayed before and after the migration transaction, so that you can see that the ERC 1155 tokens were indeed burned, and the ERC 721 tokens were minted.  However, if you want to check this balance at any time, run:
 
  `python dos_punks_migration_test.py -b`
+
+# More on Migrations
+ Note that the `getTokenId` function in the [ERC 721 contract](./DosPunks0721/contracts/ERC0721.sol) is crucial to the correct mapping between the Open Sea contract and the ERC 721 contract.  If there is an error in this mapping, the NFT's will not align.  There were certain aspects to the DOS Punks Open Sea contract which required some bespoke implementation.  Therefore, if you try to recycle this code for an arbitrary contract, it will not work.  For more information on the mapping between the Open Sea ID and the token ID, read [this article](https://medium.com/coinmonks/opensea-tokenid-explained-f420401f5109) about the token ID and [this article](https://cyberdoggos.medium.com/migrating-from-opensea-cfe9aab47d3) about migrating from Open Sea.
