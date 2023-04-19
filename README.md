@@ -1,5 +1,5 @@
 # Introduction 
- This repo contains the DOS punks migration smart contract, test 1155 source contract, and supporting Python Web3 implementation to test the migration code.
+ This repo contains the DOS Punks ERC 721 migration smart contract, the test ERC 1155 source contract, and supporting Python Web3 implementation to test the migration code.
 
 # Core Contents
  The main functionality of this repo is the following:
